@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-primary-bg text-primary-text;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-md font-medium transition-all;
+}
+
+.btn-primary {
+  @apply bg-primary-accent text-white hover:bg-blue-600;
+}
+
+.btn-secondary {
+  @apply bg-primary-container text-primary-text hover:bg-slate-700;
+}
+
+.card {
+  @apply bg-primary-container rounded-lg shadow-lg p-6;
+}
+
+.input {
+  @apply bg-slate-700 text-primary-text border border-slate-600 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primary-accent;
+}
+
+.select {
+  @apply bg-slate-700 text-primary-text border border-slate-600 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primary-accent;
+}
