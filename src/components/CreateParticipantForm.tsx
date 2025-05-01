@@ -6,18 +6,20 @@ interface CreateParticipantFormProps {
   onSuccess: () => void;
 }
 
-const CreateParticipantForm: React.FC<CreateParticipantFormProps> = ({ onSuccess }) => {
+const CreateParticipantForm: React.FC<CreateParticipantFormProps> = ({
+  onSuccess,
+}) => {
   const { createParticipant } = useParticipants();
   const [formData, setFormData] = useState<CreateParticipantInput>({
     name: '',
-    email: ''
+    email: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -30,14 +32,16 @@ const CreateParticipantForm: React.FC<CreateParticipantFormProps> = ({ onSuccess
       if (result) {
         setFormData({
           name: '',
-          email: ''
+          email: '',
         });
         onSuccess();
       } else {
         setError('Failed to create participant');
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An unknown error occurred');
+      setError(
+        err instanceof Error ? err.message : 'An unknown error occurred'
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -46,16 +50,18 @@ const CreateParticipantForm: React.FC<CreateParticipantFormProps> = ({ onSuccess
   return (
     <div className="card max-w-md mx-auto">
       <h2 className="text-xl font-bold mb-4">Add New Participant</h2>
-      
+
       {error && (
         <div className="bg-red-900/50 border border-red-700 text-red-100 px-4 py-3 rounded mb-4">
           {error}
         </div>
       )}
-      
+
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="name" className="block mb-2">Name</label>
+          <label htmlFor="name" className="block mb-2">
+            Name
+          </label>
           <input
             type="text"
             id="name"
@@ -67,9 +73,11 @@ const CreateParticipantForm: React.FC<CreateParticipantFormProps> = ({ onSuccess
             placeholder="Participant name"
           />
         </div>
-        
+
         <div className="mb-6">
-          <label htmlFor="email" className="block mb-2">Email (Optional)</label>
+          <label htmlFor="email" className="block mb-2">
+            Email (Optional)
+          </label>
           <input
             type="email"
             id="email"
@@ -80,7 +88,7 @@ const CreateParticipantForm: React.FC<CreateParticipantFormProps> = ({ onSuccess
             placeholder="email@example.com"
           />
         </div>
-        
+
         <div className="flex justify-end">
           <button
             type="submit"

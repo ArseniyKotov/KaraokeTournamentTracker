@@ -28,7 +28,11 @@ const DataInitializer: React.FC<DataInitializerProps> = ({ children }) => {
         setIsInitialized(true);
       } catch (err) {
         console.error('Error seeding database:', err);
-        setError(err instanceof Error ? err : new Error('Unknown error during data initialization'));
+        setError(
+          err instanceof Error
+            ? err
+            : new Error('Unknown error during data initialization')
+        );
         setIsInitialized(true); // Continue anyway
       }
     };

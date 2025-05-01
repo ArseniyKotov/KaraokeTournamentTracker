@@ -19,7 +19,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <footer className="bg-primary-container py-6">
             <div className="container mx-auto px-4 text-center">
               <p className="text-primary-text opacity-70">
-                VocalBracket - Karaoke Tournament Tracker © {new Date().getFullYear()}
+                VocalBracket - Karaoke Tournament Tracker ©{' '}
+                {new Date().getFullYear()}
               </p>
             </div>
           </footer>

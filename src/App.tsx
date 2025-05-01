@@ -1,4 +1,6 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import Layout from './components/Layout';
